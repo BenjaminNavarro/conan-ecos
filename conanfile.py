@@ -38,3 +38,4 @@ class EcosConan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = self._libs
         self.cpp_info.includedirs = ["include/ecos"]
+        self.cpp_info.defines = ["CTRLC=1", "LDL_LONG", "DLONG"]
