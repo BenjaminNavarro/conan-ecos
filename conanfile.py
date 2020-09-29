@@ -26,6 +26,7 @@ class EcosConan(ConanFile):
 
     def package(self):
         self.copy("*.h", dst="include/ecos", src="ecos/include")
+        self.copy("*.h", dst="include/SuiteSparse_config", src="ecos/external/SuiteSparse_config")
         self.copy("COPYING", src="ecos")
 
         for lib in self._libs:
@@ -37,5 +38,5 @@ class EcosConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = self._libs
-        self.cpp_info.includedirs = ["include/ecos"]
+        self.cpp_info.includedirs = ["include/ecos", "include/SuiteSparse_config"]
         self.cpp_info.defines = ["CTRLC=1", "LDL_LONG", "DLONG"]
